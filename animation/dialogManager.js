@@ -59,12 +59,12 @@ function DialogManager(){
 	}
 
 	this.choose=function(){
-		this.id = this.choices[this.selection].leadsTo;
-		this.currentQuestion = this.getQuestion(this.id);
-		this.choices = this.getAvailableChoices();
 		for(var i = 0; i < this.currentQuestion.sets.length; i++){
 			this.tags.push(this.currentQuestion.sets[i]);
 		}
+		this.id = this.choices[this.selection].leadsTo;
+		this.currentQuestion = this.getQuestion(this.id);
+		this.choices = this.getAvailableChoices();
 		this.selection = 0;
 	}
 
