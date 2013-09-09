@@ -109,11 +109,11 @@ function AnimationInstance(animation, frame_interval, loop){
 			alert("returning "+this.animation[Math.floor((ticks-this.startTime)/this.frame_interval)%this.num_frames]);
 			*/return this.animation[Math.floor((ticks-this.startTime)/this.frame_interval)%this.num_frames];
 		}else{
-			var index = Math.floor((ticks-this.startTime)/this.frameInterval);
-			if(index < numFrames) 
+			var index = Math.floor((ticks-this.startTime)/this.frame_interval);
+			if(index < this.num_frames) 
 				return this.animation[index];
 			else
-				return this.animation[num_frames-1];	
+				return this.animation[this.num_frames-1];	
 		}
 	}
 
@@ -121,6 +121,10 @@ function AnimationInstance(animation, frame_interval, loop){
 		var frame = this.getCurrentFrame(ticks);
 		//alert("frame = "+frame);
 		context.drawImage(img, frame.x, frame.y, frame.width, frame.height, x, y, width, height);
+	}
+
+	this.replay = function(ticks){
+		this.startTime = ticks;
 	}
 }
 

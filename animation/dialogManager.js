@@ -52,6 +52,7 @@ function DialogManager(){
 	}
 
 	this.getQuestion=function(id){
+
 		for(var i = 0; i<this.questions.length; i++){
 			if(this.questions[i].id==id)
 					return this.questions[i];
@@ -78,8 +79,9 @@ function DialogManager(){
 			if(i==this.selection){
 				context.fillStyle = 'yellow';
 			}else{
-				context.fillStyle = 'black';
+				context.fillStyle = 'white';
 			}
+			//alert("drawing at "+(y+(i*height)));
 			context.fillText(this.choices[i].line, x, y+(i*height));
 		}
 	}
